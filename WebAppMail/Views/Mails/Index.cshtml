@@ -1,0 +1,44 @@
+﻿@*@model WebAppMail.Models.Mail*@
+@{
+    ViewData["Title"] = "Mail Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+<body>
+	<h2>List recipients</h2>
+	@*<p><a asp-action="Send">Send letter</a></p>*@
+	<p><a href="~/api/Mails/Send">Send letter</a></p>
+	<table class="table">
+		<tr>
+			<th>Id</th>
+			<th>Subject</th>
+			<th>Body</th>
+			<th>Date</th>
+			<th>Result</th>
+			<th>FailedMessage</th>
+			<th>Recipients</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Subject</td>
+				<td>@item.Body</td>
+				<td>@item.Date</td>
+				<td>@item.Result</td>
+				<td>@item.FailedMessage</td>
+				<td>@item.Resipients</td>
+				@*<td>
+					<a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
+				</td>
+				<td>
+					<form asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">
+						<input type="submit" value="Удалить" />
+					</form>
+				</td>*@
+			</tr>
+		}
+	</table>
+</body>

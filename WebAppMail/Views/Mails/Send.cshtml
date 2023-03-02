@@ -1,0 +1,32 @@
+﻿@model WebAppMail.Models.Letter
+@{
+    ViewData["Title"] = "Send Page";
+}
+<h2>Send letter</h2>
+<form asp-action="Send" asp-controller="Mails">
+    <p>
+        <label asp-for="Subject">Subject</label><br />
+        <input type="text" asp-for="Subject"/>
+    </p>
+    <p>
+        <label asp-for="Body">Body</label><br />
+        <input type="text" asp-for="Body"/>
+    </p>
+    <p>
+        <label asp-for="Recipients">Recipients</label><br/>
+        <input type="email" name="Recipients" asp-for="Recipients"/>
+    </p>
+    @*<p>
+        <input type="submit" value="Send" />
+        <button type="reset">Reset</button>
+        <button type="button" name="Output" action="GetLetter">Output</button>
+    </p>*@
+    @*<div>
+        @Html.TextArea("application/json", "", 5, 50, null)
+    </div>*@
+    <p>
+        <input type="submit" value="Send" />
+        <button type="reset">Reset</button>
+        <button type="button" action="Cancel">Cancel</button>
+    </p>
+</form>
